@@ -1,0 +1,62 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+
+/* PAGE */
+@import url(../blocks/page/page.css);
+
+/* HEADER */
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+
+/* PROFILE */
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__add-btn/profile__add-btn.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__edit-btn/profile__edit-btn.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__occupation/profile__occupation.css);
+@import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__wrapper/profile__wrapper.css);
+@import url(../blocks/profile/__image/profile__image.css);
+
+/* ELEMENTS */
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__caption/element__caption.css);
+@import url(../blocks/element/__title/element__title.css);
+@import url(../blocks/element/__image/element__image.css);
+@import url(../blocks/element/__heart-btn/element__heart-btn.css);
+@import url(../blocks/element/__heart-btn/_active/element__heart-btn_active.css);
+@import url(../blocks/element/__trash-btn/element__trash-btn.css);
+@import url(../blocks/element/__likes/element__likes.css);
+@import url(../blocks/element/__counter/element__counter.css);
+
+/* FOOTER */
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/* POPUP */
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__close-btn/popup__close-btn.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/__submit-btn/popup__submit-btn.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__image-container/popup__image-container.css);
+@import url(../blocks/popup/__caption/popup__caption.css);
+@import url(../blocks/popup/_type/popup_type_image.css);
+@import url(../blocks/popup/__submit-btn/_disabled/popup__submit-btn_disabled.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
+
+body {
+    /* остальные стандартные свойства Create React App */
+  background-color: #000;
+    /* min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+} 

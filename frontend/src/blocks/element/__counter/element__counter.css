@@ -1,0 +1,9 @@
+.element__counter {
+  font-weight: 400;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-align: center;
+  line-height: 16px;
+
+  color: #000;
+}
