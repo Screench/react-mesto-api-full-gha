@@ -1,0 +1,20 @@
+.authentication__submit {  
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 22px;
+  font-size: 18px;
+  width: 100%;
+  color: #000;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  margin: 216px 0 0 0;
+  border-radius: 2px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: opacity .4s ease-in-out;
+}
+
+.authentication__submit:hover {
+  opacity: 0.85;
+}

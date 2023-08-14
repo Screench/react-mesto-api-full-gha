@@ -1,0 +1,11 @@
+.authentication__title {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 46px;
+  text-align: center;
+  color: #fff;
+}

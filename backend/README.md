@@ -1,18 +1,16 @@
-[![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml) [![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml)
-# Проектная работа 14 Mesto фронтенд + бэкенд
+[![Статус тестов](../../actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
 
+# react-mesto-api-full
+Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
 
-## Директории
+Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-`/routes` — папка с файлами роутера  
-`/controllers` — папка с файлами контроллеров пользователя и карточки   
-`/models` — папка с файлами описания схем пользователя и карточки  
-  
-Остальные директории вспомогательные, создаются при необходимости разработчиком
+Адрес репозитория: https://github.com/Screench/react-mesto-api-full-gha
 
-## Запуск проекта
+## Ссылки на проект
 
-`npm run start` — запускает сервер   
-`npm run dev` — запускает сервер с hot-reload
+IP-адрес 158.160.72.245 
 
-[**express-mesto-gha**] (https://github.com/Screench/express-mesto-gha)
+Frontend https://mestorussia.nomoreparties.co
+
+Backend https://api.mestorussia.nomoreparties.co

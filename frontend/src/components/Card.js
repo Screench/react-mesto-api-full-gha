@@ -7,8 +7,8 @@ export default function Card({card, onLike, onImageClick, onDeleteCard}) {
   const handleLikeClick = () => onLike(card);
   const handleTrashClick = () => onDeleteCard(card);
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner._id === currentUser._id;
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  const isOwn = card.owner === currentUser._id;
+  const isLiked = card.likes.some((i) => i === currentUser._id);
   const likeButtonClass = (`element__heart-btn ${isLiked && 'element__heart-btn_active'}`);
 
   return (

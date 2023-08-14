@@ -1,10 +1,6 @@
-import {apiConfig} from './utils';
-
-export class Api {
-  constructor(config) {
-    this._authorization = config.headers['authorization'];
-    this._url = config.url;
-    this._headers = config.headers;
+class Api {
+  constructor({baseUrl}) {
+    this._baseUrl = baseUrl;
   }
 
   _checkResponse(response) {
@@ -15,18 +11,22 @@ export class Api {
   }
 
   async getUserInfo() {
-    const response = await fetch(`${this._url}/users/me`, {
+    const response = await fetch(`${this._baseUrl}users/me`, {
       headers: {
-        authorization: this._authorization
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
       },
     });
     return this._checkResponse(response);
   }
 
   async setUserInfo(data) {
-    const response = await fetch(`${this._url}/users/me`, {
+    const response = await fetch(`${this._baseUrl}users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -36,9 +36,12 @@ export class Api {
   }
 
   async setUserAvatar(data) {
-    const response = await fetch(`${this._url}/users/me/avatar`, {
+    const response = await fetch(`${this._baseUrl}users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -47,18 +50,23 @@ export class Api {
   }
 
   async getServerCards() {
-    const response = await fetch(`${this._url}/cards`, {
+    const response = await fetch(`${this._baseUrl}cards`, {
+      method: 'GET',
       headers: {
-        authorization: this._authorization
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
       },
     });
     return this._checkResponse(response);
   }
 
   async handleAddNewCard(data) {
-    const response = await fetch(`${this._url}/cards`, {
+    const response = await fetch(`${this._baseUrl}cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
       body: JSON.stringify({
         name: data.name,
         link: data.link,
@@ -68,40 +76,57 @@ export class Api {
   };
 
   async deleteCard(cardId) {
-    const response = await fetch(`${this._url}/cards/${cardId}`, {
+    const response = await fetch(`${this._baseUrl}cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
     });
     return this._checkResponse(response);
   }
 
   async setCardLike(cardId) {
-    const response = await fetch(`${this._url}/cards/${cardId}/likes`, {
+    const response = await fetch(`${this._baseUrl}cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
     });
     return this._checkResponse(response);
   }
 
   async removeCardLike(cardId) {
-    const response = await fetch(`${this._url}/cards/${cardId}/likes`, {
+    const response = await fetch(`${this._baseUrl}cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
     });
     return this._checkResponse(response);
   }
 
   async changeLikeCardState(cardId, isLiked){
     if (isLiked) {
-      const response = await fetch(`${this._url}/cards/${cardId}/likes`, {
+      const response = await fetch(`${this._baseUrl}cards/${cardId}/likes`, {
         method: 'DELETE',
-        headers: this._headers,
+        headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
+      credentials: 'include'
       });
       return this._checkResponse(response);
     } else {
-      const response = await fetch(`${this._url}/cards/${cardId}/likes`, {
+      const response = await fetch(`${this._baseUrl}cards/${cardId}/likes`, {
         method: 'PUT',
-        headers: this._headers,
+        headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
+      credentials: 'include'
       });
       return this._checkResponse(response);
 
@@ -109,4 +134,4 @@ export class Api {
   }
 
 }
-export const api = new Api(apiConfig);
+export const api = new Api({ baseUrl: 'https://api.mestorussia.nomoreparties.co/' });

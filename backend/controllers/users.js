@@ -8,6 +8,7 @@ const ConflictError = require('../errors/ConflictError');
 const NotFoundError = require('../errors/NotFoundError');
 const ValidationError = require('../errors/ValidationError');
 const UnknownError = require('../errors/UnknownError');
+const { JWT_SECRET, NODE_ENV } = require('../utils/constants');
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -88,13 +89,8 @@ const login = (req, res, next) => {
       bcrypt.compare(password, userData.password)
         .then((isValidUser) => {
           if (isValidUser) {
-            const jwt = jsonWebToken.sign({ _id: userData._id }, 'SECRET_KEY');
-            res.cookie('jwt', jwt, {
-              maxAge: 36000000,
-              httpOnly: true,
-              sameSite: true,
-            });
-            res.send(userData);
+            const jwt = jsonWebToken.sign({ _id: userData._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
+            res.status(200).send({ token: jwt});
           } else {
             throw new AuthError('Неправильный пароль');
           }
