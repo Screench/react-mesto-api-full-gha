@@ -89,8 +89,8 @@ const login = (req, res, next) => {
       bcrypt.compare(password, userData.password)
         .then((isValidUser) => {
           if (isValidUser) {
-            const jwt = jsonWebToken.sign({ _id: userData._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
-            res.status(200).send({ token: jwt});
+            const jwt = jsonWebToken.sign({ _id: userData._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: '7d' });
+            res.status(200).send({ token: jwt });
           } else {
             throw new AuthError('Неправильный пароль');
           }
