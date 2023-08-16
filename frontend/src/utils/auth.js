@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.mestorussia.nomoreparties.co/";
+export const siteUrl = "https://api.mestorussia.nomoreparties.co/";
 
 function checkResponse(response) {
   if (response.ok) {
@@ -8,7 +8,7 @@ function checkResponse(response) {
 }
 
 export const register = async (email, password) => {
-  const res = await fetch(`${BASE_URL}signup`, {
+  const res = await fetch(`${siteUrl}signup`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
@@ -20,7 +20,7 @@ export const register = async (email, password) => {
 };
 
 export const authorize = async (email, password) => {
-  const res = await fetch(`${BASE_URL}signin`, {
+  const res = await fetch(`${siteUrl}signin`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
@@ -32,7 +32,7 @@ export const authorize = async (email, password) => {
 }
 
 export const getData = (token) => {
-  return fetch(`${BASE_URL}users/me`, {
+  return fetch(`${siteUrl}users/me`, {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
