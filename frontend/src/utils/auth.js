@@ -31,15 +31,14 @@ export const authorize = async (email, password) => {
   return checkResponse(res);
 }
 
-export const getData = (token) => {
-  return fetch(`${siteUrl}users/me`, {
+export const getData = async (token) => {
+  const res = await fetch(`${siteUrl}users/me`, {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     },
     credentials: 'include',
-  })
-    .then((res) => checkResponse(res))
-    .then(data => data)
-}
+  });
+  return checkResponse(res);
+};
