@@ -7,3 +7,4 @@ module.exports = {
   JWT_SECRET,
   NODE_ENV,
 };
+

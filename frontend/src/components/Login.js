@@ -21,23 +21,9 @@ export default function Login({ onLogin }) {
     <div className='authentication'>
       <div className='authentication__title'>Вход</div>
       <form name='login' className='authentication__form' onSubmit={handleSubmit}>
-        <input
-          className='authentication__input'
-          name='email'
-          type='email'
-          placeholder='E-mail'
-          onChange={handleChange}
-          value={formInputs.email || ''}
-          required />
+        <input className='authentication__input' name='email' type='email' placeholder='E-mail' onChange={handleChange} value={formInputs.email || ''} required />
 
-        <input
-          className='authentication__input'
-          name='password'  
-          type='password'
-          placeholder='Пароль'
-          onChange={handleChange}
-          value={formInputs.password || ''}
-          required />
+        <input className='authentication__input' name='password' type='password' placeholder='Пароль' onChange={handleChange} value={formInputs.password || ''} required />
 
         <button className='authentication__submit' type='submit'>Войти</button>
       </form>

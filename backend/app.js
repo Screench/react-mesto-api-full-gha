@@ -27,7 +27,7 @@ mongoose.connect(DB_URL);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
-    throw new Error('Сервер подвергается краш тесту');
+    throw new Error('Сервер проходит краш тест');
   }, 0);
 });
 
