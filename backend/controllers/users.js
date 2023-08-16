@@ -37,7 +37,14 @@ const createUser = (req, res, next) => {
   const {
     name, about, avatar, email, password,
   } = req.body;
-  bcrypt.hash(password, 10)
+
+  User.findOne({ email })
+    .then((existingUser) => {
+      if (existingUser) {
+        throw new ConflictError('Пользователь с таким email уже существует');
+      }
+      return bcrypt.hash(password, 10);
+    })
     .then((hashedPassword) => User.create({
       name, about, avatar, email, password: hashedPassword,
     }))
@@ -45,8 +52,6 @@ const createUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else if (err.code === 11000) {
-        return next(new ConflictError('Введенный email уже есть в системе'));
       }
       return next(err);
     });
