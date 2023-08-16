@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес <158.160.72.245>
+IP 158.160.72.245
 
-[Frontend](https://mestorussia.nomoreparties.co)
+Frontend https://mestorussia.nomoreparties.co
 
-[Backend](https://api.mestorussia.nomoreparties.co)
+Backend https://api.mestorussia.nomoreparties.co
