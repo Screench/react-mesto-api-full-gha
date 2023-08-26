@@ -1,4 +1,3 @@
-/* eslint-disable no-else-return */
 const Card = require('../models/card');
 const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
@@ -18,9 +17,8 @@ const createCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else {
-        return next(err);
       }
+      return next(err);
     });
 };
 
@@ -36,9 +34,8 @@ const setLike = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else {
-        return next(err);
       }
+      return next(err);
     });
 };
 
@@ -54,9 +51,8 @@ const removeLike = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else {
-        return next(err);
       }
+      return next(err);
     });
 };
 
@@ -77,9 +73,8 @@ const deleteCardById = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else {
-        return next(err);
       }
+      return next(err);
     });
 };
 

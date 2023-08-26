@@ -1,4 +1,3 @@
-/* eslint-disable no-else-return */
 const bcrypt = require('bcryptjs');
 const jsonWebToken = require('jsonwebtoken');
 const User = require('../models/user');
@@ -65,9 +64,8 @@ const updateProfile = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else {
-        return next(new UnknownError('Неизвестная ошибка'));
       }
+      return next(new UnknownError('Неизвестная ошибка'));
     });
 };
 
@@ -79,9 +77,8 @@ const updateAvatar = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорректные данные'));
-      } else {
-        return next(new UnknownError('Неизвестная ошибка'));
       }
+      return next(new UnknownError('Неизвестная ошибка'));
     });
 };
 
